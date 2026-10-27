@@ -1,0 +1,29 @@
+# ArgoCD Application: koppelt een map in Git aan een namespace in het cluster
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nginx-gitops
+  namespace: argocd
+spec:
+  project: default
+  # Bron: de Helm chart in deze Git-repo
+  source:
+    repoURL: https://github.com/MichylS/k8s-gitops.git
+    targetRevision: main
+    path: apps/nginx-gitops
+    helm:
+      valueFiles:
+        - values.yaml
+  # Doel: dit cluster, namespace gitops
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: gitops
+  syncPolicy:
+    automated:
+      # Resources die uit Git verdwijnen, worden ook uit het cluster verwijderd
+      prune: true
+      # Handmatige wijzigingen in het cluster worden teruggezet naar wat in Git staat
+      selfHeal: true
+    syncOptions:
+      # Namespace aanmaken als die nog niet bestaat
+      - CreateNamespace=true

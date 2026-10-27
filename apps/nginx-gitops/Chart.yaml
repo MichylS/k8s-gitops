@@ -1,0 +1,7 @@
+# Helm chart die door ArgoCD vanuit Git wordt uitgerold
+apiVersion: v2
+name: nginx-gitops
+description: NGINX uitgerold via GitOps met ArgoCD (portfolio opdracht)
+type: application
+version: 0.1.0
+appVersion: "stable"

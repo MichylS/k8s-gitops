@@ -1,0 +1,19 @@
+# Pas deze waarden aan in Git; ArgoCD zet de wijziging automatisch door naar het cluster
+
+# Aantal NGINX-pods
+replicaCount: 1
+
+# Welke container-image gebruikt wordt
+image:
+  repository: nginx
+  tag: stable
+
+# Hoe de app van buitenaf bereikbaar is
+service:
+  type: NodePort
+  port: 80
+  nodePort: 30085
+
+# Tekst op de webpagina, zodat je ziet welke versie uit Git draait
+environment: gitops
+message: "Uitgerold door ArgoCD vanuit Git"
