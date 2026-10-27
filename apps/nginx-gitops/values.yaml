@@ -1,7 +1,7 @@
 # Pas deze waarden aan in Git; ArgoCD zet de wijziging automatisch door naar het cluster
 
 # Aantal NGINX-pods
-replicaCount: 1
+replicaCount: 2
 
 # Welke container-image gebruikt wordt
 image:
@@ -16,4 +16,4 @@ service:
 
 # Tekst op de webpagina, zodat je ziet welke versie uit Git draait
 environment: gitops
-message: "Uitgerold door ArgoCD vanuit Git"
+message: "Versie 2 - aangepast via Git"
