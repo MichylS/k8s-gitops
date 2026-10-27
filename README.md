@@ -1,6 +1,5 @@
 # k8s-gitops
 
-GitOps-repo voor mijn Kubernetes-portfolio. ArgoCD houdt het cluster gelijk aan wat in deze repo staat.
 
 ## Structuur
 
